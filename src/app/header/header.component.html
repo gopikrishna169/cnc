@@ -1,0 +1,69 @@
+<div class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font color="white"> Login/Signup</font> <span class="caret"></span></a>
+       <ul class="dropdown-menu">
+            <div class="l" *ngIf="!isAuthadmin()">
+            <li><a *ngIf="!isAuth()" [routerLink]="['Login']">Login</a></li>
+            </div>
+            <div>
+            <li><a *ngIf="!isAuthadmin()" [routerLink]="['Admin']">Admin Login</a></li>
+            </div>
+            <div>
+            <li><a *ngIf="isAuth()" (click)="logout()"> Logout</a></li>
+            </div>
+            <div>
+            <li><a *ngIf="isAuthadmin()" (click)="Alogout()">Admin Logout</a></li>
+            </div>
+            <div>
+            <li><a [routerLink]="['Signup']" >Signup</a></li>
+            </div>
+       </ul>
+
+      
+      
+</div>
+ <div class="cc-btn" data-toggle="button" aria-pressed="false" autocomplete="off">
+      <button *ngIf="isAuth()" [routerLink]="['Cart']" type="cart" class="btn btn-danger">Cart</button>
+</div>
+    <div class="cc-btn" data-toggle="button" aria-pressed="false" autocomplete="off">
+      <button type="customercare" class="btn btn-success">Customer Care</button>
+</div>
+ 
+   <div class="cat-btn" data-toggle="button" aria-pressed="false" autocomplete="off">
+      <button type="categories" class="btn btn-warning" (click)=openNav()>Categories</button>
+</div>
+
+<div class="jumbotron" style="background-color: deepskyblue">
+   <div class="cnc text-center">
+  <h1><font color="white">Cash 'n' Carry</font></h1>
+  </div> 
+     <!-- Toast msg -->
+      <div class="toast__msg"></div>
+</div>
+
+ <div class="input-group add-on">
+      <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+      <div class="input-group-btn">
+        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+      </div>
+    </div>
+
+<div id="cat-nav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+  <a [routerLink]="['']">Home</a>
+  <a *ngIf="!isAuthadmin()" [routerLink]="['Electronics']">Electronics</a>
+  <a *ngIf="!isAuthadmin()" [routerLink]="['Clothings']">Clothings</a>
+  <a *ngIf="isAuthadmin()" [routerLink]="['ElectronicsComponent']">Add Items to Electronics Section</a>
+  <a *ngIf="isAuthadmin()" [routerLink]="['ClothingsComponent']">Add Items to Clothings Section</a>
+ 
+ 
+ <div id="main">
+ <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+  
+</div>
+
+</div>
+
+
+
+
+

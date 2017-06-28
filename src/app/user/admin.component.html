@@ -1,0 +1,14 @@
+ 
+  <form [formGroup]="myForm" (ngSubmit)="onALogin()" class="modal-content animate" action="/action_page.php">
+    <div class="form-group a">
+      <label for="text"><b>AdminID</b></label>
+      <input formControlName="text" type="text" id="text" name="text" #text class="form-control">
+      
+    </div>
+    <div class="form-group a">
+      <label for="password"><b>Password</b></label>
+      <input formControlName="password" type="password" name="password" id="password" class="form-control">
+    </div>
+    <button type="submit" [disabled]="!myForm.valid" class="btn btn-success a" >Admin Login</button>   
+    
+  </form>

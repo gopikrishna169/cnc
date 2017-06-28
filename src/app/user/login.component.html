@@ -1,0 +1,14 @@
+  
+  <form [formGroup]="myForm" (ngSubmit)="onLogin()" class="modal-content animate" action="/action_page.php">
+    <div class="form-group a">
+      <label for="email"><b>Email</b></label>
+      <input formControlName="email" type="email" id="email" #email class="form-control">
+      <span *ngIf="!email.pristine && email.errors != null && eamil.errors['noEmail']">Invalid</span>
+    </div>
+    <div class="form-group a">
+      <label for="password"><b>Password</b></label>
+      <input formControlName="password" type="password" id="password" class="form-control">
+    </div>
+    <button type="submit" [disabled]="!myForm.valid" class="btn btn-success a" >Login</button>   
+    
+  </form>

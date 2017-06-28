@@ -1,0 +1,37 @@
+
+<div id="id" class="modal1">
+  
+  <form class="modal-content animate" action="/action_page.php" id="1">
+    
+    <div class="container" id="2">
+<label><b>Product Type</b></label>
+<select class="form-control" [(ngModel)]="item.type" [ngModelOptions]="{standalone: true}" id="type" name="type">
+    <option>Casuals</option>
+    <option>Sports Wear</option>
+    <option>Party Wear</option>
+</select>
+
+      <label><b>Product Name</b></label>
+      <input type="text" placeholder="Product Name" name="name" id= "name"[(ngModel)]="item.name" [ngModelOptions]="{standalone: true}" required>
+
+
+      <label><b>Cost</b></label>
+      <input type="number" placeholder="Cost" id="cost" name="cost" [(ngModel)]="item.cost"  [ngModelOptions]="{standalone: true}" required>
+
+     <label><b>Money Type</b></label>
+<select class="form-control" id="costtype" name="costtype" [(ngModel)]="item.costtype" [ngModelOptions]="{standalone: true}">
+    <option>Rupee</option>
+    <option>USD</option>
+    <option>Euro</option>
+</select>
+
+        
+      <button type="submit" id="add-item" name="add-item" class="btn btn-success" (click)="onClicked()">Submit</button>
+       <button type="button" onclick="document.getElementById('id').style.display='none'" class="btn btn-danger">Cancel</button>
+    </div>
+
+  
+  </form>
+</div>
+<div id="result"></div>
+ 
