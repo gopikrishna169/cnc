@@ -21,12 +21,17 @@ import { toast } from "../../../js/toast";
   styleUrls: ['./electronics-display.component.css']
 })
 export class ElectronicsDisplayComponent implements OnInit {
-items: Item[] =JSON.parse(localStorage.getItem("savedData3")) || [];
+
+items: Item[] =JSON.parse(localStorage.getItem("savedData3")) || [{"name":"Moto G4","cost":15000,"costtype":"Rupee","type":"Mobile","id":"1"},{"name":"iPhone 7s","cost":85000,"costtype":"Rupee","type":"Mobile","id":"1"},{"name":"Ear Phone","cost":2000,"costtype":"Rupee","type":"Mobile Accessories","id":"1"},{"name":"SD Card 16GB","cost":500,"costtype":"Rupee","type":"Mobile Accessories","id":"1"},{"name":"RAM 8GB","cost":4000,"costtype":"Rupee","type":"Computer Accessories","id":"1"},{"name":"Mouse ","cost":600,"costtype":"Rupee","type":"Computer Accessories","id":"1"},{"name":"Mobile","cost":"1000","costtype":"USD","type":"Mobile","id":"1"}];
 item : Item;
-  constructor(private localStorageService: LocalStorageService, private cartService: CartService, private authService: AuthService) { }
+x: Item;
+  constructor(private localStorageService: LocalStorageService, private cartService: CartService, private authService: AuthService) {
+     localStorage.setItem("savedData3", JSON.stringify(this.items));
+   }
 
   ngOnInit() {
   }
+
 onClicked(item1)
 { 
              var entry = {

@@ -39,9 +39,15 @@ if (user) {
 }
 
 getid(){
-  debugger;
+ 
 var user = firebase.auth().currentUser;
-return user.email;
+if (user == null )
+{
+  return ("test@test.com");
+}
+else{
+  return user.email;
+}
 }
 
 onadminlogin(user){

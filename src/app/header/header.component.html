@@ -16,9 +16,7 @@
             <div>
             <li><a [routerLink]="['Signup']" >Signup</a></li>
             </div>
-       </ul>
-
-      
+       </ul>   
       
 </div>
  <div class="cc-btn" data-toggle="button" aria-pressed="false" autocomplete="off">
@@ -38,6 +36,7 @@
   </div> 
      <!-- Toast msg -->
       <div class="toast__msg"></div>
+      <div class="connected" *ngIf="!(isConnected | async)"><i class="glyphicon glyphicon-bell gly"></i>Your Offline</div>
 </div>
 
  <div class="input-group add-on">

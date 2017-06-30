@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -21,6 +21,7 @@ import { CartComponent } from './cart/cart.component'
 import { CartService } from './cart/cart.service';
 import { ClothingsDisplayComponent } from './items/clothings/clothings-display.component';
 import { AdminComponent } from './user/admin.component';
+
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { AdminComponent } from './user/admin.component';
     routing,
     FormsModule,
     HttpModule,
+    JsonpModule,
      LocalStorageModule.withConfig({
             prefix: 'first-app',
         //  storageType: 'localStorage'
@@ -58,4 +60,7 @@ import { AdminComponent } from './user/admin.component';
   providers: [AuthService, AuthGuard, CartService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  
+ }

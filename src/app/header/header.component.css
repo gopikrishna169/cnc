@@ -90,3 +90,15 @@ body {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+.connected{
+        float: right;
+    margin-right: 10px;
+    
+     
+}
+
+.gly{
+    color: red;
+    
+}

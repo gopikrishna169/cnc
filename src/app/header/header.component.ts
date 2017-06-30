@@ -6,7 +6,11 @@ import { Router } from "@angular/router";
 
 import { toast } from '../../js/toast';
 
-import { AdminComponent } from '../user/admin.component'
+import { AdminComponent } from '../user/admin.component';
+
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-header',
@@ -14,8 +18,16 @@ import { AdminComponent } from '../user/admin.component'
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router) { }
+  isConnected: Observable<boolean>;
+
+  constructor(private authService: AuthService, private router: Router) {
+    this.isConnected = Observable.merge(
+      Observable.of(navigator.onLine),
+      Observable.fromEvent(window, 'online').map(() => true),
+      Observable.fromEvent(window, 'offline').map(() => false));
+   }
 isAuth(){
+  
   return this.authService.isAuthenticated();
 }
   ngOnInit() {
