@@ -1,5 +1,3 @@
-
-
 export function toast(msg, options) {
     if (!msg) return;
     options = options || 3000;

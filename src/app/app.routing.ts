@@ -20,6 +20,9 @@ import { AuthGuard } from "./user/auth.guard";
 
 import { AdminComponent } from "./user/admin.component";
 
+import { ElectronicsListComponent } from "./items/electronics/electronics-list.component"
+
+
 
 
 const APP_ROUTES: Routes = [

@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input } from '@angular/core';
 
 import { ElectronicsListComponent } from './electronics-list.component';
 
@@ -14,6 +14,9 @@ import { AuthService } from "../../user/auth.service";
 
 import { toast } from "../../../js/toast";
 
+import { ApiService } from '../../api.service';
+
+
 //import { here } from "./store.js";
 @Component({
   selector: 'app-electronics-display',
@@ -21,29 +24,32 @@ import { toast } from "../../../js/toast";
   styleUrls: ['./electronics-display.component.css']
 })
 export class ElectronicsDisplayComponent implements OnInit {
-
-items: Item[] =JSON.parse(localStorage.getItem("savedData3")) || [{"name":"Moto G4","cost":15000,"costtype":"Rupee","type":"Mobile","id":"1"},{"name":"iPhone 7s","cost":85000,"costtype":"Rupee","type":"Mobile","id":"1"},{"name":"Ear Phone","cost":2000,"costtype":"Rupee","type":"Mobile Accessories","id":"1"},{"name":"SD Card 16GB","cost":500,"costtype":"Rupee","type":"Mobile Accessories","id":"1"},{"name":"RAM 8GB","cost":4000,"costtype":"Rupee","type":"Computer Accessories","id":"1"},{"name":"Mouse ","cost":600,"costtype":"Rupee","type":"Computer Accessories","id":"1"},{"name":"Mobile","cost":"1000","costtype":"USD","type":"Mobile","id":"1"}];
-item : Item;
+   // JSON.parse(localStorage.getItem("savedData3")) || []; 
+   items: Item[];
 x: Item;
-  constructor(private localStorageService: LocalStorageService, private cartService: CartService, private authService: AuthService) {
-     localStorage.setItem("savedData3", JSON.stringify(this.items));
+  constructor(private localStorageService: LocalStorageService, private cartService: CartService, private authService: AuthService, private apiService: ApiService ) {
+  
+   // localStorage.setItem("savedData3", JSON.stringify(this.items));
+   this.items = this.get();
    }
 
   ngOnInit() {
   }
 
-onClicked(item1)
-{ 
-             var entry = {
-                'name'     : item1.name,
-                'cost'     : item1.cost, 
-                'costtype' : item1.costtype,       
-                'type'     : item1.type, 
-                'id'       : item1.id,
-            };
-  this.items.push(entry);
-  localStorage.setItem("savedData3", JSON.stringify(this.items));
+get(){
+  let items: Item[];
+  this.apiService.getAll().subscribe(res => {
+    items =  res;
+  });
+  return items;
 }
+
+isAuthadmin(){
+  if(this.authService.auth==true)
+  return true;
+}
+
+
 toCart(item){
 if(this.authService.isAuthenticated()== true){
     

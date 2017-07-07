@@ -11,8 +11,6 @@ import { ElectronicsComponent } from "./electronics.component";
 })
 export class ElectronicsListComponent implements OnInit {
 
-item: Item;
-id:number =0;
   constructor() {    }
 
   ngOnInit() {

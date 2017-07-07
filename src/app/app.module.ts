@@ -21,6 +21,7 @@ import { CartComponent } from './cart/cart.component'
 import { CartService } from './cart/cart.service';
 import { ClothingsDisplayComponent } from './items/clothings/clothings-display.component';
 import { AdminComponent } from './user/admin.component';
+import { ApiService } from './api.service';
 
 
 
@@ -57,7 +58,7 @@ import { AdminComponent } from './user/admin.component';
         })
     
   ],
-  providers: [AuthService, AuthGuard, CartService],
+  providers: [AuthService, AuthGuard, CartService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

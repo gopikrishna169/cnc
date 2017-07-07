@@ -10,15 +10,18 @@ import { AuthService } from "../../user/auth.service";
 
 import { toast } from "../../../js/toast.js";
 
+import { ApiService } from '../../api.service';
+import { Observable } from 'rxjs/Observable';
+
 @Component({
   selector: 'app-clothings-display',
   templateUrl: './clothings-display.component.html',
   styleUrls: ['./clothings-display.component.css']
 })
 export class ClothingsDisplayComponent implements OnInit {
-items: Item[] =JSON.parse(localStorage.getItem("savedData5")) || [{"name":"Shirt","cost":"1000","costtype":"Rupee","type":"Casuals","id":"1"},{"name":"Trousers","cost":"1000","costtype":"Rupee","type":"Casuals","id":"1"},{"name":"Sleve","cost":500,"costtype":"Rupee","type":"Sports Wear","id":"1"},{"name":"Shorts","cost":799,"costtype":"Rupee","type":"Sports Wear","id":"1"},{"name":"T-Shirt","cost":699,"costtype":"Rupee","type":"Party Wear","id":"1"},{"name":"Shoes","cost":999,"costtype":"Rupee","type":"Party Wear","id":"1"}];
+items: Item[] =JSON.parse(localStorage.getItem("savedData5")) || [];
 item : Item;
-  constructor(private localStorageService: LocalStorageService, private cartService: CartService, private authService: AuthService) {
+  constructor(private localStorageService: LocalStorageService, private cartService: CartService, private authService: AuthService, private apiService: ApiService) {
     localStorage.setItem("savedData5", JSON.stringify(this.items));
    }
 
@@ -35,6 +38,7 @@ onClicked(item1)
             };
   this.items.push(entry);
   localStorage.setItem("savedData5", JSON.stringify(this.items));
+  //return this.apiService.createinclothings(item1);
 }
 toCart(item){
 if(this.authService.isAuthenticated()== true){

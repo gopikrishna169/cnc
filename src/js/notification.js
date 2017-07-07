@@ -2,7 +2,7 @@
   'use strict';
 
   //Push notification button
-  var fabPushElement = document.querySelector('.fab__push');
+  var fabPushElement = document.querySelector('.fab_push');
   var fabPushImgElement = document.querySelector('.fab__image');
 
   //To check `push notification` is supported or not
