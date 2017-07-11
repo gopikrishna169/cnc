@@ -54,29 +54,5 @@ localStorage.setItem( this.authService.getid() ,item);
  
 }
 }
+}
 
-addtoelectronics(item1: Item){
-var entry = {
-                'name'     : item1.name,
-                'cost'     : item1.cost, 
-                'costtype' : item1.costtype,       
-                'type'     : item1.type, 
-                'id'       : item1.id,
-            };
-  this.items.push(entry);
-  localStorage.setItem("savedData3", JSON.stringify(this.items));
-  //return this.apiService.createinelectronics(item1);
-}
-addtoclothings(item1: Item){
-var entry = {
-                'name'     : item1.name,
-                'cost'     : item1.cost, 
-                'costtype' : item1.costtype,       
-                'type'     : item1.type, 
-                'id'       : item1.id,
-            };
-  this.items.push(entry);
-  localStorage.setItem("savedData5", JSON.stringify(this.items));
-  //return this.apiService.createinelectronics(item1);
-}
-}

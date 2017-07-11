@@ -6,7 +6,9 @@ import { Item } from "../item";
 
 import { CartService } from '../../cart/cart.service';
 
-import { toast } from '../../../js/toast'
+import { toast } from '../../../js/toast';
+
+import { ApiService } from '../../api.service'
 
 @Component({
   selector: 'app-clothings',
@@ -18,7 +20,7 @@ iitems: Item[] =JSON.parse(localStorage.getItem("savedData5")) || [] ;
 x: Item;
 item: Item;
 
- constructor (private cartService: CartService) { 
+ constructor (private cartService: CartService, private apiService: ApiService) { 
 
     this.item=new Item("Tshirt","1000","Casuals","USD","1");
   }
@@ -28,7 +30,12 @@ item: Item;
  
 onClicked()
 { 
- this.cartService.addtoclothings(this.item);
- toast("Added",2000);
+ 
+ var added ;
+ this.apiService.addinclothings(this.item).subscribe(res => {
+ added =  res;
+ });
+ 
+  toast("Added",2000);
 }
 }

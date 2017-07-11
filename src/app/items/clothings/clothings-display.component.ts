@@ -19,12 +19,14 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./clothings-display.component.css']
 })
 export class ClothingsDisplayComponent implements OnInit {
-items: Item[] =JSON.parse(localStorage.getItem("savedData5")) || [];
+items: Item[] =JSON.parse(localStorage.getItem("clothings")) || [];
 item : Item;
-  constructor(private localStorageService: LocalStorageService, private cartService: CartService, private authService: AuthService, private apiService: ApiService) {
-    localStorage.setItem("savedData5", JSON.stringify(this.items));
-   }
-
+  constructor(private localStorageService: LocalStorageService, private cartService: CartService, private authService: AuthService, private apiService: ApiService ) {
+      this.apiService.getAllclothings().subscribe(res => {
+      this.items =  res;
+      localStorage.setItem("clothings", JSON.stringify(this.items));
+    });
+  }
   ngOnInit() {
   }
 onClicked(item1)

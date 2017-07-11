@@ -4,7 +4,7 @@
             <div class="l" *ngIf="!isAuthadmin()">
             <li><a *ngIf="!isAuth()" [routerLink]="['Login']">Login</a></li>
             </div>
-            <div>
+            <div class="Admin" *ngIf="(isConnected | async)" >
             <li><a *ngIf="!isAuthadmin()" [routerLink]="['Admin']">Admin Login</a></li>
             </div>
             <div>

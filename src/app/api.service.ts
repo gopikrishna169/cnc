@@ -22,37 +22,69 @@ export class ApiService {
     
   }
 
-  public getAll(){
-    let headers = new Headers();
-headers.append('Content-Type', 'application/json');
-headers.append('Access-Control-Allow-Origin', '*');
-    let options = new RequestOptions({ headers: headers });
+  public getAllelectronics(){
+  let headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  headers.append('Accept', 'application/json');
+  headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
+  headers.append('Access-Control-Allow-Credentials', 'true');
+  let options = new RequestOptions({ headers: headers });
     return this.http
       .get(API_URL + '/electronics', options)
       .map(response => {
-        
+        console.log('response from server: ' + response.json());
         return response.json();
       })
       .catch(this.handleError);
   }
 
-  public createinelectronics(item: Item) {
+ public getAllclothings(){
+  let headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  headers.append('Accept', 'application/json');
+  headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
+  headers.append('Access-Control-Allow-Credentials', 'true');
+  let options = new RequestOptions({ headers: headers });
     return this.http
-      .post(API_URL + '/electronics/', item)
+      .get(API_URL + '/clothings', options)
       .map(response => {
+        console.log('response from server: ' + response.json());
         return response.json();
       })
       .catch(this.handleError);
   }
 
- public createinclothings(item: Item){
+  public addinelectronics(item: Item) {
+  let headers = new Headers();
+  headers.append('Content-Type', 'application/x-www-form-urlencoded');
+  headers.append('Accept', 'application/x-www-form-urlencoded');
+  headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
+  headers.append('Access-Control-Allow-Credentials', 'true');
+  let options = new RequestOptions({ headers: headers });
     return this.http
-      .post(API_URL + '/clothings/', item)
+      .post(API_URL + '/electronicsadd', item )
       .map(response => {
-        return response.json();
+        return response;
       })
       .catch(this.handleError);
   }
+
+
+ public addinclothings(item: Item) {
+  let headers = new Headers();
+  headers.append('Content-Type', 'application/x-www-form-urlencoded');
+  headers.append('Accept', 'application/x-www-form-urlencoded');
+  headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
+  headers.append('Access-Control-Allow-Credentials', 'true');
+  let options = new RequestOptions({ headers: headers });
+    return this.http
+      .post(API_URL + '/clothingsadd', item )
+      .map(response => {
+        return response;
+      })
+      .catch(this.handleError);
+  }
+ 
 
 
  public addincart(item: Item, x: string) {

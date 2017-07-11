@@ -10,19 +10,21 @@ import { HttpModule, JsonpModule } from '@angular/http';
 
 import { CartService } from '../../cart/cart.service';
 
-import { toast } from '../../../js/toast'
+import { toast } from '../../../js/toast';
+
+import { ApiService } from '../../api.service'
+
 @Component({
   selector: 'app-electronics',
   templateUrl: './electronics.component.html',
   styleUrls: ['./electronics.component.css']
 })
 export class ElectronicsComponent implements OnInit {
-items: Item[] =JSON.parse(localStorage.getItem("savedData3")) || [] ;
+items: Item[] =JSON.parse(localStorage.getItem("electronics")) || [] ;
 x: Item;
 item: Item;
 
- constructor (private cartService: CartService) { 
-
+ constructor (private cartService: CartService, private apiService: ApiService) { 
     this.item=new Item("Mobile","1000","Mobile","USD","1");
   }
 
@@ -31,7 +33,11 @@ item: Item;
  
 onClicked()
 { 
- this.cartService.addtoelectronics(this.item);
+ var added ;
+ this.apiService.addinelectronics(this.item).subscribe(res => {
+ added =  res;
+ });
  toast("Added",2000);
 }
+
 }

@@ -24,25 +24,18 @@ import { ApiService } from '../../api.service';
   styleUrls: ['./electronics-display.component.css']
 })
 export class ElectronicsDisplayComponent implements OnInit {
-   // JSON.parse(localStorage.getItem("savedData3")) || []; 
-   items: Item[];
-x: Item;
-  constructor(private localStorageService: LocalStorageService, private cartService: CartService, private authService: AuthService, private apiService: ApiService ) {
+   items: Item[] =  JSON.parse(localStorage.getItem("electronics"));
   
-   // localStorage.setItem("savedData3", JSON.stringify(this.items));
-   this.items = this.get();
+  constructor(private localStorageService: LocalStorageService, private cartService: CartService, private authService: AuthService, private apiService: ApiService ) {
+      this.apiService.getAllelectronics().subscribe(res => {
+      this.items =  res;
+      localStorage.setItem("electronics", JSON.stringify(this.items));
+      });
+   
    }
 
   ngOnInit() {
   }
-
-get(){
-  let items: Item[];
-  this.apiService.getAll().subscribe(res => {
-    items =  res;
-  });
-  return items;
-}
 
 isAuthadmin(){
   if(this.authService.auth==true)
