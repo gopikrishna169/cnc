@@ -1,0 +1,15 @@
+
+<div class="row">  
+  <div class="col-md-3">        
+<div class="thumnail"  *ngFor="let item of items " >
+    
+    <h4 class="item-title">{{item.type}}</h4>
+    <p class="item-name">Product: {{item.name}}</p>
+    <p class="item-cost">Cost   : {{item.cost}} {{item.costtype}}</p>
+    <button class="btn btn-primary" (click)="orderPlaced()" >Buy Now</button>
+    <button class="btn btn-danger"  (click)="remove(this.item)">Remove</button>
+    <hr>
+    </div>
+
+  </div>
+</div>

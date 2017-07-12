@@ -1,0 +1,23 @@
+{
+  "electronics": [
+    {"name":"Moto G4","cost":15000,"costtype":"Rupee","type":"Mobile","id":"1"},
+    {"name":"iPhone 7s","cost":85000,"costtype":"Rupee","type":"Mobile","id":"1"},
+    {"name":"Ear Phone","cost":2000,"costtype":"Rupee","type":"Mobile Accessories","id":"1"},
+    {"name":"SD Card 16GB","cost":500,"costtype":"Rupee","type":"Mobile Accessories","id":"1"},
+    {"name":"RAM 8GB","cost":4000,"costtype":"Rupee","type":"Computer Accessories","id":"1"},
+    {"name":"Mouse ","cost":600,"costtype":"Rupee","type":"Computer Accessories","id":"1"},
+    {"name":"Mobile","cost":"1000","costtype":"USD","type":"Mobile","id":"1"}
+    ],
+    "clothings":[
+      {"name":"Shirt","cost":"1000","costtype":"Rupee","type":"Casuals","id":"1"},
+      {"name":"Trousers","cost":"1000","costtype":"Rupee","type":"Casuals","id":"1"},
+      {"name":"Sleve","cost":500,"costtype":"Rupee","type":"Sports Wear","id":"1"},
+      {"name":"Shorts","cost":799,"costtype":"Rupee","type":"Sports Wear","id":"1"},
+      {"name":"T-Shirt","cost":699,"costtype":"Rupee","type":"Party Wear","id":"1"},
+      {"name":"Shoes","cost":999,"costtype":"Rupee","type":"Party Wear","id":"1"}
+    ],
+
+    "cart": [
+      
+    ]
+} 

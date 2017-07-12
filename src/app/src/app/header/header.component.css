@@ -1,0 +1,104 @@
+.toast__msg{
+    background: white;
+    text-align: center;
+    float: initial;
+    font-size: xx-large;
+        color: red;
+}
+
+.input-group{
+    margin-bottom: 10px;
+    margin-top: 10px;
+        z-index: 0;
+}
+
+.input-group-btn{
+    margin-bottom: 10px;
+    margin-top: 10px;
+     z-index: 0;
+}
+
+.btn-success.raised {
+	box-shadow: 0 3px 0 0 green;
+}
+
+.cc-btn{
+    margin-top: 30px;
+    margin-right: 10px;
+    float: right;
+}
+
+.cat-btn{
+    margin-top: 30px;
+    margin-right: 10px;
+    float: right;
+}
+
+
+.dropdown{
+      
+    float: right;
+    margin-top: 37px;
+    margin-right: 10px;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px !important;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.connected{
+        float: right;
+    margin-right: 10px;
+    
+     
+}
+
+.gly{
+    color: red;
+    
+}
