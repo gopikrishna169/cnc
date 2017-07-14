@@ -50,14 +50,14 @@ self.addEventListener('fetch', function(event) {
 self.addEventListener('push', (event) => {
   console.info('Event: Push');
 
-  var title = 'Push notification demo';
+  var title = 'Rate Us';
   var body = {
-    'body': 'click to return to application',
-    'tag': 'demo',
+    'body': 'Did you like our service ?',
+    'tag': '?',
     //Custom actions buttons
     'actions': [
-      { 'action': 'yes', 'title': 'I ♥ this app!'},
-      { 'action': 'no', 'title': 'I don\'t like this app'}
+      { 'action': 'yes', 'title': 'Liked '},
+      { 'action': 'no', 'title': 'Nope'}
     ]
   };
 

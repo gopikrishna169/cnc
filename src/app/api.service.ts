@@ -48,8 +48,7 @@ export class ApiService {
     return this.http
       .get(API_URL + '/clothings', options)
       .map(response => {
-        console.log('response from server: ' + response.json());
-        return response.json();
+       return response.json();
       })
       .catch(this.handleError);
   }

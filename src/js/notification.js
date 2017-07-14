@@ -1,5 +1,19 @@
 (function (window) {
   'use strict';
+  function toast(msg, options) {
+    if (!msg) return;
+    options = options || 3000;
+    
+    var toastMsg = document.querySelector('.toast__msg');
+    toastMsg.textContent = msg;
+    toastMsg.classList.add("toast__msg--show");
+    
+    //Show toast for 3secs and hide it
+    setTimeout(function () {
+      toastMsg.classList.remove("toast__msg--show");
+      toastMsg.textContent = "";
+    }, options);
+  }
 
   //Push notification button
   var fabPushElement = document.querySelector('.fab_push');
@@ -104,11 +118,11 @@
     fabPushElement.checked = status;
     if (status) {
       fabPushElement.classList.add('active');
-      fabPushImgElement.src = '../images/push-on.png';
+      fabPushImgElement.src = '../image/push-on.png';
     }
     else {
      fabPushElement.classList.remove('active');
-     fabPushImgElement.src = '../images/push-off.png';
+     fabPushImgElement.src = '../image/push-off.png';
     }
   }
 
